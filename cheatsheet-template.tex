@@ -1,0 +1,686 @@
+\documentclass{article}
+\usepackage[landscape]{geometry}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{esint}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{amsmath,amssymb}
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\makeatletter
+
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+\title{ST 555 Mathematical Statistics II Formula Sheet}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\advance\topmargin-.8in
+\advance\textheight3in
+\advance\textwidth3in
+\advance\oddsidemargin-1.5in
+\advance\evensidemargin-1.5in
+\parindent0pt
+\parskip2pt
+\newcommand{\hr}{\centerline{\rule{3.5in}{1pt}}}
+\begin{document}
+
+% \begin{center}{\huge{\textbf{ST 555 Mathematical Statistics II Formula Sheet}}}\\
+% \end{center}
+\begin{multicols*}{3}
+
+\tikzstyle{mybox} = [draw=black, fill=white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=5pt]
+\tikzstyle{fancytitle} =[fill=black, text=white, font=\bfseries]
+
+%------------ Combinatorics ---------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%         \begin{align*}
+%             \text{Bonferroni Inequality: } & P(A \cap B) \geq P(A) + P(B) - 1 \\
+%             \text{Boole's Inequality: } & P(A \cup B) \leq P(A) + P(B) \\
+%             \text{DeMorgan's Law: } & (A \cup B)^C = A^C \cap B^C \\
+%             & \ (A \cap B)^C = A^C \cup B^C \\
+%             P(A) &= 1- P(A^C) \\
+%             P(A|B) &= \frac{P(A \cap B)}{P(B)}, \ P(B) > 0 \\
+%             \text{Baye's Rule: } P(A_j|B) &= \frac{P(A_j)P(B|A_j)}{\sum_iP(A_i)P(B|A_i)} \\
+%             P(A \cap B) = P(A)P(B),& \text{ iff } A,B \text{ independent}
+%         \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Combinatorics Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Combinatorics};
+% \end{tikzpicture}
+
+%------------ Basic Probability ---------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%         \begin{align*}
+%             F_Y(y) &= P(Y \leq y) = P(2X \leq y) = P(X \leq \frac{y}{2}) \\
+%             f_Y(y) &= f_X(g^{-1}(y)) |\frac{dg^{-1}(y)}{dy}|, \text{ if strict in/decrease}
+%         \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Basic Probability Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Basic Probability};
+% \end{tikzpicture}
+
+%------------ Expectations, Moments, and MGFs ---------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+        \begin{align*}
+            % Eg(X) &= \sum_X g(x) p_X(x) \\
+            % Eg(X) &= \int_X g(x) f_X(x) \\
+            % E(ag(X) + b) &= aEg(X) + b \\
+            % Var(\alpha X + \beta) &= \alpha^2 Var(X) \\
+            % \text{rth Moment} &= EX^r \\
+            Var(X) &= E(X-EX)^2 \\
+            &= EX^2 - (EX)^2 \\
+            &= EX(X-1) + EX - (EX)^2 \\
+            M_X(t) &= E(e^{tX}) \\
+            Cov(X,Y) &= E(X-E(X))(Y-E(Y)) \\
+            &= E(XY) - E(X) E(Y) \\
+            Var(aX + bY) &= a^2Var(X) + b^2Var(Y) \\
+            & \ \ \ + 2abCov(X,Y) \\
+            \text{Correlation: } \rho_{X,Y} &= \frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}} \\
+            f_{X_{(k)}}(x) &= k \binom{n}{k} f(x) [F(x)]^{k-1}[1-F(x)]^{n-k} \\
+            \text{Independence: } & F_{X,Y}(x,y) = F_X(x) F_Y(y), \forall x,y \\
+            % & p_{X,Y}(x,y) = p_X(x) p_Y(y), \forall x,y \\
+            % & f_{X,Y}(x,y) = f_X(x) f_Y(y), \forall x,y \\
+            Cov(X,Y) &= 0, \text{ if } X,Y \text{ independent}
+        \end{align*}
+        \end{minipage}
+    };
+%------------ Expectations, Moments, and MGFs Header -------------
+\node[fancytitle, right=10pt] at (box.north west) {Basic Probability};
+\end{tikzpicture}
+
+% \vspace{50pt}
+
+%------------ Discrete Uniform (1, N) ---------------
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+        p_X(x) &= \frac{1}{N}, \text{ if } x = 1, 2, ..., N, \ \
+        F_X(x) = \frac{x}{N} \\
+        E(X) &= \frac{N+1}{2}, \ \ \ 
+        Var(X) = \frac{N^2-1}{12} \\
+        M_X(t) &= \frac{e^t-e^{(N+1)t}}{N(1-e^t)} \\
+        p_X(x) &= \frac{\binom{M}{x} \binom{N-M}{n-x}}{\binom{N}{n}}, \text{ if } x=0,1,...,n \\
+        E(X) &= \frac{nM}{N}, \ \ \ 
+        Var(X) = \frac{nM}{N}\left(1 - \frac{M}{N}\right)\left(\frac{N-n}{N-1}\right) \\
+        p_X(x) &= p^x(1-p)^{1-x}, \text{ if } x = 0, 1 \\
+        E(X) &= p, \ \ \ 
+        Var(X) = p(1-P) \\
+        M_X(t) &= (1-p) + pe^t \\
+        p_X(x) &= \binom{n}{x}p^x(1-p)^{n-x}, \text{ if } x=0,1,\dots,n \\
+        E(X) &= np, \ \ \ 
+        Var(X) = np(1-P) \\
+        M_X(t) &= (1-p + pe^t)^n \\
+        p_X(x) &= p(1-p)^{x-1}, \text{ if } x=1,2,\dots \\
+        E(X) &= \frac{1}{p}, \ \ \ 
+        Var(X) = \frac{1-p}{p^2} \\
+        M_X(t) &= \frac{pe^t}{1-(1-p)e^t}
+    \end{align*}
+    \end{minipage}
+};
+%------------ Discrete Uniform (1, N) Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Discrete Distributions};
+\end{tikzpicture}
+
+%------------ Discrete Uniform (N0, N1) Content ---------------------
+% \begin{tikzpicture}
+% \node [mybox] (box){%
+%     \begin{minipage}{0.3\textwidth}
+%     	\begin{align*}
+%         	p_X(x) &= \frac{1}{N_1 - N_0 + 1}, \text{ if } x = N_0, N_0 + 1, ...,  N_1 \\
+%             F_X(x) &= \frac{x-N_0 + 1}{N_1 - N_0 + 1}, \text{ if } x = N_0, N_0 + 1, ...,  N_1 \\
+%             E(X) &= \frac{N_1 + N_0}{2} \\
+%             Var(X) &= \frac{(N_1 - N_0)(N_1 - N_0 + 2)}{12} \\
+%             M_X(t) &= \frac{e^{N_0t} - e^{(N_1+1)t}}{(N_1-N_0+1)(1-e^t)}
+%     	\end{align*}
+%     \end{minipage}
+% };
+% %------------ Discrete Uniform (N0, N1) Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Discrete Uniform $(N_0, N_1)$};
+% \end{tikzpicture}
+
+%------------ Hypergeometric $(N, M, n)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 p_X(x) &= \frac{\binom{M}{x} \binom{N-M}{n-x}}{\binom{N}{n}}, \text{ if } x=0,1,...,n \\
+%                 E(X) &= \frac{nM}{N}, \ \ \ 
+%                 Var(X) = \frac{nM}{N}\left(1 - \frac{M}{N}\right)\left(\frac{N-n}{N-1}\right)
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Hypergeometric $(N, M, n)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Hypergeometric $(N, M, n)$};
+% \end{tikzpicture}
+
+%------------ Bernoulli $(p)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 p_X(x) &= p^x(1-p)^{1-x}, \text{ if } x = 0, 1 \\
+%                 E(X) &= p, \ \ \ 
+%                 Var(X) = p(1-P) \\
+%                 M_X(t) &= (1-p) + pe^t
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Bernoulli $(p)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Bernoulli $(p)$};
+% \end{tikzpicture}
+
+%------------ Binomial $(n, p)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 p_X(x) &= \binom{n}{x}p^x(1-p)^{n-x}, \text{ if } x=0,1,\dots,n \\
+%                 E(X) &= np, \ \ \ 
+%                 Var(X) = np(1-P) \\
+%                 M_X(t) &= (1-p + pe^t)^n
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Binomial $(n, p)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Binomial $(n, p)$};
+% \end{tikzpicture}
+
+% \vspace{50pt}
+
+%------------ Geometric $(p)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 p_X(x) &= p(1-p)^{x-1}, \text{ if } x=1,2,\dots \\
+%                 E(X) &= \frac{1}{p}, \ \ \ 
+%                 Var(X) = \frac{1-p}{p^2} \\
+%                 M_X(t) &= \frac{pe^t}{1-(1-p)e^t}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Geometric $(p)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Geometric $(p)$};
+% \end{tikzpicture}
+
+%------------ Negative Binomial $(r,p)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                p_X(x) &= \binom{x-1}{r-1}p^r(1-p)^{x-r}, \text{ if } x=r, r+1, \dots \\
+                % X &= W_1 + W_2 + \dots + W_r = \sum_{i=1}^rW_i \\
+                % W_1, & W_2, \dots, W_r \sim \text{Geometric}(p) \\
+                E(X) &= \frac{r}{p}, \ \ \ 
+                Var(X) = \frac{r(1-p)}{p^2} \\
+                p_X(x) &= \frac{e^{-\lambda} \lambda^x}{x!}, \text{ if } x = 0, 1, 2, \dots \\
+                F_X(x) &= e^{-\lambda} \sum_{i=0}^x \frac{\lambda^i}{i!} \\
+                E(X) &= \lambda, \ \ \ 
+                Var(X) = \lambda \\
+                M_X(t) &= e^{\lambda(e^t-1)}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Negative Binomial $(r,p)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Discrete Distributions cont.};
+\end{tikzpicture}
+
+%------------ Poisson $(\lambda)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 p_X(x) &= \frac{e^{-\lambda} \lambda^x}{x!}, \text{ if } x = 0, 1, 2, \dots \\
+%                 F_X(x) &= e^{-\lambda} \sum_{i=0}^x \frac{\lambda^i}{i!} \\
+%                 E(X) &= \lambda, \ \ \ 
+%                 Var(X) = \lambda \\
+%                 M_X(t) &= e^{\lambda(e^t-1)}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Poisson $(\lambda)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Poisson $(\lambda)$};
+% \end{tikzpicture}
+
+%------------ Continuous Uniform $(a, b)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                f_X(x) &= \frac{1}{b-a}, \text{ if } a < x < b \\
+                E(X) &= \frac{a+b}{2}, \ \ \ 
+                Var(X) = \frac{(b-a)^2}{12} \\
+                M_X(t) &= \frac{e^{tb}-e^{ta}}{t(b-a)}, 1 \text{ if } t = 0 \\
+                f_X(x) &= \frac{1}{\Gamma(\alpha) \beta^\alpha} x^{\alpha-1} e^{-\frac{x}{\beta}} , \text{ if } x>0 \\
+                E(X) &= \alpha \beta, \ \ \ 
+                Var(X) = \alpha \beta^2 \\
+                M_X(t) &= (1-\beta t)^{-\alpha} \\
+                f_X(x) &= \frac{1}{\beta^\alpha} e^{-\frac{x}{\beta}}, \text{ if } x>0 \\
+                X \sim& \text{Gamma}(1, \beta) \\
+                E(X) &= \beta, \ \ \ 
+                Var(X) = \beta^2 \\
+                M_X(t) &= (1-\beta t)^{-1} \\
+                \chi^2: & X \sim \text{Gamma}(\frac{p}{2}, 2) \\
+                f_X(x) &= \frac{1}{B(\alpha, \beta)} x^{\alpha-1} (1-x)^{\beta-1}, \text{ if } x \in (0,1) \\
+                E(X) &= \frac{\alpha}{\alpha + \beta}, \ \ \ 
+                Var(X) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} \\
+                M_X(t) &= \sum_{n=0}^\infty \frac{B(\alpha + n, \beta)}{B(\alpha, \beta)} \frac{t^n}{n!} \\
+                f_X(x) &= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x-\mu}{\sigma} \right)^2} \text{ if } x \in \mathbb{R} \\
+                M_X(t) &= e^{\mu t + \frac{1}{2}\sigma^2t^2}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Continuous Uniform $(a, b)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Continuous Distributions};
+\end{tikzpicture}
+
+%------------ Gamma $(\alpha, \beta)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 f_X(x) &= \frac{1}{\Gamma(\alpha) \beta^\alpha} x^{\alpha-1} e^{-\frac{x}{\beta}} , \text{ if } x>0 \\
+%                 E(X) &= \alpha \beta, \ \ \ 
+%                 Var(X) = \alpha \beta^2 \\
+%                 M_X(t) &= (1-\beta t)^{-\alpha}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Gamma $(\alpha, \beta)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Gamma $(\alpha, \beta)$};
+% \end{tikzpicture}
+
+%------------ Exponential $(\beta)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 f_X(x) &= \frac{1}{\beta^\alpha} e^{-\frac{x}{\beta}}, \text{ if } x>0 \\
+%                 X \sim& \text{Gamma}(1, \beta) \\
+%                 E(X) &= \beta, \ \ \ 
+%                 Var(X) = \beta^2 \\
+%                 M_X(t) &= (1-\beta t)^{-1}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Exponential $(\beta)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Exponential $(\beta)$};
+% \end{tikzpicture}
+
+% \vspace{50pt}
+
+%------------ Chi-Squared $(p)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 X \sim& \text{Gamma}(\frac{p}{2}, 2)
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Chi-Squared $(p)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Chi-Squared $(p)$};
+% \end{tikzpicture}
+
+%------------ Beta $(\alpha, \beta)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 f_X(x) &= \frac{1}{B(\alpha, \beta)} x^{\alpha-1} (1-x)^{\beta-1}, \text{ if } x \in (0,1) \\
+%                 E(X) &= \frac{\alpha}{\alpha + \beta}, \ \ \ 
+%                 Var(X) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} \\
+%                 M_X(t) &= \sum_{n=0}^\infty \frac{B(\alpha + n, \beta)}{B(\alpha, \beta)} \frac{t^n}{n!}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Beta $(\alpha, \beta)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Beta $(\alpha, \beta)$};
+% \end{tikzpicture}
+
+%------------ Normal $(\mu, \sigma)$ Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 f_X(x) &= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x-\mu}{\sigma} \right)^2} \text{ if } x \in \mathbb{R} \\
+%                 M_X(t) &= e^{\mu t + \frac{1}{2}\sigma^2t^2}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Normal $(\mu, \sigma)$ Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Normal $(\mu, \sigma)$};
+% \end{tikzpicture}
+
+%------------ Marginal Distributions Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 p_X(x) &= \sum_y p_{X,Y}(x,y) \\
+%                 p_Y(y) &= \sum_x p_{X,Y}(x,y) \\
+%                 f_X(x) &= \int_{-\infty}^\infty f_{X,Y}(x,y) \ dy \\
+%                 f_Y(y) &= \int_{-\infty}^\infty f_{X,Y}(x,y) \ dx
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Marginal Distributions Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Marginal Distributions};
+% \end{tikzpicture}
+
+%------------ Joint Expectations Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 Eh(X,Y) &= \sum_{(x,y)} h(x,y) p_{X,Y}(x,y) \\
+%                 Eh(X,Y) &= \iint_{\mathbb{R}^2} h(x,y) f_{X,Y}(x,y) dydx
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Joint Expectations Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Joint Expectations};
+% \end{tikzpicture}
+
+%------------ Covariance & Correlation Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 Cov(X,Y) &= E(X-E(X))(Y-E(Y)) \\
+%                 &= E(XY) - E(X) E(Y) \\
+%                 Var(aX + bY) &= a^2Var(X) + b^2Var(Y) \\
+%                 & \ \ \ + 2abCov(X,Y) \\
+%                 \text{Correlation: } \rho_{X,Y} &= \frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Covariance & Correlation Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Covariance \& Correlation};
+% \end{tikzpicture}
+
+%------------ Conditional Distributions Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 p_{Y|X}(y|x) &= \frac{p_{X,Y}(x,y)}{p_X(x)} \\
+%                 f_{Y|X}(y|x) &= \frac{f_{X,Y}(x,y)}{f_X(x)} \\
+%                 E[h(X,Y) | X=x] &= \sum_y h(X,Y) p(Y|X) \\
+%                 E[h(X,Y) | X=x] &= \int h(X,Y) p(Y|X) dy \\
+%                 E[ah(X,Y) + b | X] &= aE[h(X,Y)] + b \\
+%                 E[h(X,Y) + g(X,Y) | X] &= E[h|X] + E[g|X] \\
+%                 E[g(X)h(X,Y) | X] &= g(X)E[h(X,Y)|X] \\
+%                 EY &= E[E(Y|X)] \\
+%                 Var(Y) = E[Var(Y|X)]& + Var[E(Y|X)]
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Conditional Distributions Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Conditional Distributions};
+% \end{tikzpicture}
+
+%------------ Independence Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 \text{Independence: } & F_{X,Y}(x,y) = F_X(x) F_Y(y), \forall x,y \\
+%                 & p_{X,Y}(x,y) = p_X(x) p_Y(y), \forall x,y \\
+%                 & f_{X,Y}(x,y) = f_X(x) f_Y(y), \forall x,y \\
+%                 Cov(X,Y) &= 0, \text{ if } X,Y \text{ independent}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Independence Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Independence};
+% \end{tikzpicture}
+
+%------------ Convolution Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 F_{X+Y}(t) = P(X+Y \leq t) = P(Y \leq t - X)
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Convolution Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Convolution};
+% \end{tikzpicture}
+
+%------------ MGF Approach Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 M_{X+Y}(t) = M_X(t) &M_Y(t), \text{ if } X,Y \text{ independent}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ MGF Approach Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {MGF Approach};
+% \end{tikzpicture}
+
+%------------ Jacobian Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 y_1 &= h_1(x_1, x_2) \\
+%                 y_2 &= h_2(x_1, x_2) \\
+%                 f_{Y_1, Y_2}(y_1, y_2) &= f_{X_1, X_2}(h^{-1}(y_1, y_2)) | \text{det}(J_{h^{-1}}(y_1, y_2)) | \\
+%                 J &= 
+%                 \begin{bmatrix}
+%                     \frac{\partial{h_1}}{\partial{x_1}} & \frac{\partial{h_2}}{\partial{x_1}} & \frac{\partial{h_3}}{\partial{x_1}} \\
+%                     \frac{\partial{h_1}}{\partial{x_2}} & \frac{\partial{h_2}}{\partial{x_2}} & \frac{\partial{h_3}}{\partial{x_2}} \\
+%                     \frac{\partial{h_1}}{\partial{x_3}} & \frac{\partial{h_2}}{\partial{x_3}} & \frac{\partial{h_3}}{\partial{x_3}}
+%                 \end{bmatrix}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Jacobian Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Jacobians};
+% \end{tikzpicture}
+
+% \vspace{50pt}
+
+%------------ Generalities Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 X &= X_1, X_2, \dots, X_n \\
+%                 F_X(x_1, \dots, x_n) &= P(X_1 \leq x_1, \dots, X_n \leq x_n) \\
+%                 p_X(x_1, \dots, x_n) &= P(X_1 = x_1, \dots, X_n = x_n) \\
+%                 f_X(x_1, \dots, x_n) &
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Generalities Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Generalities};
+% \end{tikzpicture}
+
+%------------ Order Statistics Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 &X_1, X_2, \dots, X_n \stackrel{\text{iid}}{\sim} f \\
+%                 f_{X_{(k)}}(x) &= k \binom{n}{k} f(x) [F(x)]^{k-1}[1-F(x)]^{n-k} \\
+%                 % f_{X_{(j)},X_{(k)}}(x,y) &= \frac{n!}{(j-1)!(k-j-1)!(n-k)!} \\
+%                 % &[F(x)]^{j-1} [F(x)]^{j-1} [F(y)-F(x)]^{k-j-1} \\
+%                 % &[1-F(y)]^{n-k} f(x) f(y)
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Order Statistics Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Order Statistics};
+% \end{tikzpicture}
+
+%------------ Gamma + Beta Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                \Gamma(\alpha) &= \int_0^\infty t^{\alpha - 1} e^{-t} dt, \ \ \alpha > 0 \\
+                \Gamma(\alpha + 1) &= \alpha \Gamma({\alpha}) \ \ \ \ \ \ \ \ 
+                \Gamma(\alpha) = (\alpha-1)! \\
+                % \Gamma\left(\frac{1}{2}\right) &= \sqrt{\pi} \\
+                B(\alpha, \beta) &= \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha + \beta)} = \int_0^1 x^{\alpha-1} (1-x)^{\beta-1} dx \\
+                \sum_{x=1}^N x &= \frac{N(N+1)}{2} \ \ \ \ \ 
+                \sum_{n=0}^\infty ar^n = \frac{a}{1-r} \\
+                \binom{n}{r} &= \frac{n!}{r!(n-r)!} = \frac{n}{r} \binom{n-1}{r-1} \\
+                % {}_nP_r &= \frac{n!}{(n-r)!}
+                lim_{n \to \infty} & \left(1 - \frac{c}{n}\right)^{-n} = 0 \\
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Gamma + Beta Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {General Equations};
+\end{tikzpicture}
+
+%------------ Sums Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 \sum_{x=1}^N x &= \frac{N(N+1)}{2} \\
+%                 \sum_{n=0}^\infty ar^n &= \frac{a}{1-r}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Sums Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Sums};
+% \end{tikzpicture}
+
+%------------ Combinations & Permutations ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 \binom{n}{r} &= \frac{n!}{r!(n-r)!} \\
+%                 {}_nP_r &= \frac{n!}{(n-r)!} \\
+%                 \binom{n}{r} &= \frac{n}{r} \binom{n-1}{r-1}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Combinations & Permutations Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Combinations \& Permutations};
+% \end{tikzpicture}
+
+% \vspace{50pt}
+
+%------------ Matrix Operatrion Content ---------------------
+% \begin{tikzpicture}
+%     \node [mybox] (box){%
+%         \begin{minipage}{0.3\textwidth}
+%             \begin{align*}
+%                 \begin{bmatrix}
+%                     a & b & c \\
+%                     d & e & f \\
+%                 \end{bmatrix}
+%                 &: \text{2x3 matrix}
+%                 \\% Matrix Addition
+%                 \begin{bmatrix}
+%                     a & b \\
+%                     c & d \\ 
+%                 \end{bmatrix}
+%                 +
+%                 \begin{bmatrix}
+%                     e & f \\
+%                     g & h \\ 
+%                 \end{bmatrix}
+%                 &=
+%                 \begin{bmatrix}
+%                     a+e & b+f \\
+%                     c+g & d+h \\ 
+%                 \end{bmatrix}
+%                 \\ % Multiplication by a constant
+%                 2 *
+%                 \begin{bmatrix}
+%                     a & b \\
+%                     c & d \\ 
+%                 \end{bmatrix}
+%                 &=
+%                 \begin{bmatrix}
+%                     2a & 2b \\
+%                     2c & 2d \\ 
+%                 \end{bmatrix}
+%                 \\ % Matrix Multiplication
+%                 \begin{bmatrix}
+%                     a & b & c \\
+%                     d & e & f \\ 
+%                 \end{bmatrix}
+%                 *
+%                 \begin{bmatrix}
+%                     1 \\
+%                     2 \\
+%                     3 \\ 
+%                 \end{bmatrix}
+%                 &=
+%                 \begin{bmatrix}
+%                     a + 2b + 3c \\
+%                     d + 2e + 3f \\ 
+%                 \end{bmatrix}
+%                 \\ % Transpose
+%                 \begin{bmatrix}
+%                     a & b & c \\
+%                     d & e & f \\ 
+%                 \end{bmatrix}^T
+%                 &=
+%                 \begin{bmatrix}
+%                     a & d \\
+%                     b & e \\
+%                     c & f \\
+%                 \end{bmatrix}
+%             \end{align*}
+%         \end{minipage}
+%     };
+% %------------ Matrix Operations Header ---------------------
+% \node[fancytitle, right=10pt] at (box.north west) {Matrix Operations};
+% \end{tikzpicture}
+
+%------------ Gamma + Beta Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                X \sim & N_n(\mu, \Sigma) \& Y = AX + b \\
+                \implies Y & \sim N_m(A\mu + b, A\Sigma A^T) \\
+                M_{X_n}(t) &= M(t) \text{ for } |b| \leq h_1 \implies X_n \rightarrow{D} X \\
+                lim_{n \to \infty} & P[|X_n - X| \geq \epsilon] = 0 \implies X_n \rightarrow{P} X \\
+                \text{CLT: } & \frac{\sqrt{n}(\bar{x}_n - \mu)}{\sigma} \\
+                \Delta \text{ Theorem: } & \sqrt{n}(g(\bar{X}) - g(\mu)) \sim N(0, g'(\mu)^2) \sigma^2 \\
+                \text{MLE: } & L(\theta) = \prod_{i=1}^{n} f(x_i;\theta) \\
+                \frac{\delta \log(L(\theta))}{\delta \theta} &= 0 \text{ gives } \hat{\theta} \\
+                \text{MME: } & EX, \text{ solve for } \theta \\
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Gamma + Beta Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {New Material};
+\end{tikzpicture}
+
+\end{multicols*}
+\end{document}
