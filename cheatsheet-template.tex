@@ -118,110 +118,112 @@
         F_X(x) = \frac{x}{N} \\
         E(X) &= \frac{N+1}{2}, \ \ \ 
         Var(X) = \frac{N^2-1}{12} \\
-        M_X(t) &= \frac{e^t-e^{(N+1)t}}{N(1-e^t)} \\
-        p_X(x) &= \frac{\binom{M}{x} \binom{N-M}{n-x}}{\binom{N}{n}}, \text{ if } x=0,1,...,n \\
-        E(X) &= \frac{nM}{N}, \ \ \ 
-        Var(X) = \frac{nM}{N}\left(1 - \frac{M}{N}\right)\left(\frac{N-n}{N-1}\right) \\
-        p_X(x) &= p^x(1-p)^{1-x}, \text{ if } x = 0, 1 \\
-        E(X) &= p, \ \ \ 
-        Var(X) = p(1-P) \\
-        M_X(t) &= (1-p) + pe^t \\
-        p_X(x) &= \binom{n}{x}p^x(1-p)^{n-x}, \text{ if } x=0,1,\dots,n \\
-        E(X) &= np, \ \ \ 
-        Var(X) = np(1-P) \\
-        M_X(t) &= (1-p + pe^t)^n \\
-        p_X(x) &= p(1-p)^{x-1}, \text{ if } x=1,2,\dots \\
-        E(X) &= \frac{1}{p}, \ \ \ 
-        Var(X) = \frac{1-p}{p^2} \\
-        M_X(t) &= \frac{pe^t}{1-(1-p)e^t}
+        M_X(t) &= \frac{e^t-e^{(N+1)t}}{N(1-e^t)}
+        % p_X(x) &= \frac{\binom{M}{x} \binom{N-M}{n-x}}{\binom{N}{n}}, \text{ if } x=0,1,...,n \\
+        % E(X) &= \frac{nM}{N}, \ \ \ 
+        % Var(X) = \frac{nM}{N}\left(1 - \frac{M}{N}\right)\left(\frac{N-n}{N-1}\right) \\
+        % p_X(x) &= p^x(1-p)^{1-x}, \text{ if } x = 0, 1 \\
+        % E(X) &= p, \ \ \ 
+        % Var(X) = p(1-P) \\
+        % M_X(t) &= (1-p) + pe^t \\
+        % p_X(x) &= \binom{n}{x}p^x(1-p)^{n-x}, \text{ if } x=0,1,\dots,n \\
+        % E(X) &= np, \ \ \ 
+        % Var(X) = np(1-P) \\
+        % M_X(t) &= (1-p + pe^t)^n \\
+        % p_X(x) &= p(1-p)^{x-1}, \text{ if } x=1,2,\dots \\
+        % E(X) &= \frac{1}{p}, \ \ \ 
+        % Var(X) = \frac{1-p}{p^2} \\
+        % M_X(t) &= \frac{pe^t}{1-(1-p)e^t}
     \end{align*}
     \end{minipage}
 };
 %------------ Discrete Uniform (1, N) Header ---------------------
-\node[fancytitle, right=10pt] at (box.north west) {Discrete Distributions};
+\node[fancytitle, right=10pt] at (box.north west) {Discrete Unifrom (1, N)};
 \end{tikzpicture}
 
 %------------ Discrete Uniform (N0, N1) Content ---------------------
-% \begin{tikzpicture}
-% \node [mybox] (box){%
-%     \begin{minipage}{0.3\textwidth}
-%     	\begin{align*}
-%         	p_X(x) &= \frac{1}{N_1 - N_0 + 1}, \text{ if } x = N_0, N_0 + 1, ...,  N_1 \\
-%             F_X(x) &= \frac{x-N_0 + 1}{N_1 - N_0 + 1}, \text{ if } x = N_0, N_0 + 1, ...,  N_1 \\
-%             E(X) &= \frac{N_1 + N_0}{2} \\
-%             Var(X) &= \frac{(N_1 - N_0)(N_1 - N_0 + 2)}{12} \\
-%             M_X(t) &= \frac{e^{N_0t} - e^{(N_1+1)t}}{(N_1-N_0+1)(1-e^t)}
-%     	\end{align*}
-%     \end{minipage}
-% };
-% %------------ Discrete Uniform (N0, N1) Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Discrete Uniform $(N_0, N_1)$};
-% \end{tikzpicture}
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    	\begin{align*}
+        	p_X(x) &= \frac{1}{N_1 - N_0 + 1}, \text{ if } x = N_0, N_0 + 1, ...,  N_1 \\
+            F_X(x) &= \frac{x-N_0 + 1}{N_1 - N_0 + 1}, \text{ if } x = N_0, N_0 + 1, ...,  N_1 \\
+            E(X) &= \frac{N_1 + N_0}{2} \\
+            Var(X) &= \frac{(N_1 - N_0)(N_1 - N_0 + 2)}{12} \\
+            M_X(t) &= \frac{e^{N_0t} - e^{(N_1+1)t}}{(N_1-N_0+1)(1-e^t)}
+    	\end{align*}
+    \end{minipage}
+};
+%------------ Discrete Uniform (N0, N1) Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Discrete Uniform $(N_0, N_1)$};
+\end{tikzpicture}
+
+\vspace{50pt}
 
 %------------ Hypergeometric $(N, M, n)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 p_X(x) &= \frac{\binom{M}{x} \binom{N-M}{n-x}}{\binom{N}{n}}, \text{ if } x=0,1,...,n \\
-%                 E(X) &= \frac{nM}{N}, \ \ \ 
-%                 Var(X) = \frac{nM}{N}\left(1 - \frac{M}{N}\right)\left(\frac{N-n}{N-1}\right)
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Hypergeometric $(N, M, n)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Hypergeometric $(N, M, n)$};
-% \end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                p_X(x) &= \frac{\binom{M}{x} \binom{N-M}{n-x}}{\binom{N}{n}}, \text{ if } x=0,1,...,n \\
+                E(X) &= \frac{nM}{N}, \ \ \ 
+                Var(X) = \frac{nM}{N}\left(1 - \frac{M}{N}\right)\left(\frac{N-n}{N-1}\right)
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Hypergeometric $(N, M, n)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Hypergeometric $(N, M, n)$};
+\end{tikzpicture}
 
 %------------ Bernoulli $(p)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 p_X(x) &= p^x(1-p)^{1-x}, \text{ if } x = 0, 1 \\
-%                 E(X) &= p, \ \ \ 
-%                 Var(X) = p(1-P) \\
-%                 M_X(t) &= (1-p) + pe^t
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Bernoulli $(p)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Bernoulli $(p)$};
-% \end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                p_X(x) &= p^x(1-p)^{1-x}, \text{ if } x = 0, 1 \\
+                E(X) &= p, \ \ \ 
+                Var(X) = p(1-P) \\
+                M_X(t) &= (1-p) + pe^t
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Bernoulli $(p)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Bernoulli $(p)$};
+\end{tikzpicture}
 
 %------------ Binomial $(n, p)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 p_X(x) &= \binom{n}{x}p^x(1-p)^{n-x}, \text{ if } x=0,1,\dots,n \\
-%                 E(X) &= np, \ \ \ 
-%                 Var(X) = np(1-P) \\
-%                 M_X(t) &= (1-p + pe^t)^n
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Binomial $(n, p)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Binomial $(n, p)$};
-% \end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                p_X(x) &= \binom{n}{x}p^x(1-p)^{n-x}, \text{ if } x=0,1,\dots,n \\
+                E(X) &= np, \ \ \ 
+                Var(X) = np(1-P) \\
+                M_X(t) &= (1-p + pe^t)^n
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Binomial $(n, p)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Binomial $(n, p)$};
+\end{tikzpicture}
 
 % \vspace{50pt}
 
 %------------ Geometric $(p)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 p_X(x) &= p(1-p)^{x-1}, \text{ if } x=1,2,\dots \\
-%                 E(X) &= \frac{1}{p}, \ \ \ 
-%                 Var(X) = \frac{1-p}{p^2} \\
-%                 M_X(t) &= \frac{pe^t}{1-(1-p)e^t}
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Geometric $(p)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Geometric $(p)$};
-% \end{tikzpicture}
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                p_X(x) &= p(1-p)^{x-1}, \text{ if } x=1,2,\dots \\
+                E(X) &= \frac{1}{p}, \ \ \ 
+                Var(X) = \frac{1-p}{p^2} \\
+                M_X(t) &= \frac{pe^t}{1-(1-p)e^t}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Geometric $(p)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Geometric $(p)$};
+\end{tikzpicture}
 
 %------------ Negative Binomial $(r,p)$ Content ---------------------
 \begin{tikzpicture}
@@ -232,7 +234,24 @@
                 % X &= W_1 + W_2 + \dots + W_r = \sum_{i=1}^rW_i \\
                 % W_1, & W_2, \dots, W_r \sim \text{Geometric}(p) \\
                 E(X) &= \frac{r}{p}, \ \ \ 
-                Var(X) = \frac{r(1-p)}{p^2} \\
+                Var(X) = \frac{r(1-p)}{p^2}
+                % p_X(x) &= \frac{e^{-\lambda} \lambda^x}{x!}, \text{ if } x = 0, 1, 2, \dots \\
+                % F_X(x) &= e^{-\lambda} \sum_{i=0}^x \frac{\lambda^i}{i!} \\
+                % E(X) &= \lambda, \ \ \ 
+                % Var(X) = \lambda \\
+                % M_X(t) &= e^{\lambda(e^t-1)}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Negative Binomial $(r,p)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Negative Binomial $(r,p)$};
+\end{tikzpicture}
+
+%------------ Poisson $(\lambda)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
                 p_X(x) &= \frac{e^{-\lambda} \lambda^x}{x!}, \text{ if } x = 0, 1, 2, \dots \\
                 F_X(x) &= e^{-\lambda} \sum_{i=0}^x \frac{\lambda^i}{i!} \\
                 E(X) &= \lambda, \ \ \ 
@@ -241,26 +260,9 @@
             \end{align*}
         \end{minipage}
     };
-%------------ Negative Binomial $(r,p)$ Header ---------------------
-\node[fancytitle, right=10pt] at (box.north west) {Discrete Distributions cont.};
+%------------ Poisson $(\lambda)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Poisson $(\lambda)$};
 \end{tikzpicture}
-
-%------------ Poisson $(\lambda)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 p_X(x) &= \frac{e^{-\lambda} \lambda^x}{x!}, \text{ if } x = 0, 1, 2, \dots \\
-%                 F_X(x) &= e^{-\lambda} \sum_{i=0}^x \frac{\lambda^i}{i!} \\
-%                 E(X) &= \lambda, \ \ \ 
-%                 Var(X) = \lambda \\
-%                 M_X(t) &= e^{\lambda(e^t-1)}
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Poisson $(\lambda)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Poisson $(\lambda)$};
-% \end{tikzpicture}
 
 %------------ Continuous Uniform $(a, b)$ Content ---------------------
 \begin{tikzpicture}
@@ -270,107 +272,107 @@
                 f_X(x) &= \frac{1}{b-a}, \text{ if } a < x < b \\
                 E(X) &= \frac{a+b}{2}, \ \ \ 
                 Var(X) = \frac{(b-a)^2}{12} \\
-                M_X(t) &= \frac{e^{tb}-e^{ta}}{t(b-a)}, 1 \text{ if } t = 0 \\
+                M_X(t) &= \frac{e^{tb}-e^{ta}}{t(b-a)}, 1 \text{ if } t = 0
+                % f_X(x) &= \frac{1}{\Gamma(\alpha) \beta^\alpha} x^{\alpha-1} e^{-\frac{x}{\beta}} , \text{ if } x>0 \\
+                % E(X) &= \alpha \beta, \ \ \ 
+                % Var(X) = \alpha \beta^2 \\
+                % M_X(t) &= (1-\beta t)^{-\alpha} \\
+                % f_X(x) &= \frac{1}{\beta^\alpha} e^{-\frac{x}{\beta}}, \text{ if } x>0 \\
+                % X \sim& \text{Gamma}(1, \beta) \\
+                % E(X) &= \beta, \ \ \ 
+                % Var(X) = \beta^2 \\
+                % M_X(t) &= (1-\beta t)^{-1} \\
+                % \chi^2: & X \sim \text{Gamma}(\frac{p}{2}, 2) \\
+                % f_X(x) &= \frac{1}{B(\alpha, \beta)} x^{\alpha-1} (1-x)^{\beta-1}, \text{ if } x \in (0,1) \\
+                % E(X) &= \frac{\alpha}{\alpha + \beta}, \ \ \ 
+                % Var(X) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} \\
+                % M_X(t) &= \sum_{n=0}^\infty \frac{B(\alpha + n, \beta)}{B(\alpha, \beta)} \frac{t^n}{n!} \\
+                % f_X(x) &= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x-\mu}{\sigma} \right)^2} \text{ if } x \in \mathbb{R} \\
+                % M_X(t) &= e^{\mu t + \frac{1}{2}\sigma^2t^2}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Continuous Uniform $(a, b)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Continuous Uniform $(a, b)$};
+\end{tikzpicture}
+
+%------------ Gamma $(\alpha, \beta)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
                 f_X(x) &= \frac{1}{\Gamma(\alpha) \beta^\alpha} x^{\alpha-1} e^{-\frac{x}{\beta}} , \text{ if } x>0 \\
                 E(X) &= \alpha \beta, \ \ \ 
                 Var(X) = \alpha \beta^2 \\
-                M_X(t) &= (1-\beta t)^{-\alpha} \\
+                M_X(t) &= (1-\beta t)^{-\alpha}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Gamma $(\alpha, \beta)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Gamma $(\alpha, \beta)$};
+\end{tikzpicture}
+
+%------------ Exponential $(\beta)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
                 f_X(x) &= \frac{1}{\beta^\alpha} e^{-\frac{x}{\beta}}, \text{ if } x>0 \\
                 X \sim& \text{Gamma}(1, \beta) \\
                 E(X) &= \beta, \ \ \ 
                 Var(X) = \beta^2 \\
-                M_X(t) &= (1-\beta t)^{-1} \\
-                \chi^2: & X \sim \text{Gamma}(\frac{p}{2}, 2) \\
+                M_X(t) &= (1-\beta t)^{-1}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Exponential $(\beta)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Exponential $(\beta)$};
+\end{tikzpicture}
+
+% \vspace{50pt}
+
+%------------ Chi-Squared $(p)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                X \sim& \text{Gamma}(\frac{p}{2}, 2)
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Chi-Squared $(p)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Chi-Squared $(p)$};
+\end{tikzpicture}
+
+%------------ Beta $(\alpha, \beta)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
                 f_X(x) &= \frac{1}{B(\alpha, \beta)} x^{\alpha-1} (1-x)^{\beta-1}, \text{ if } x \in (0,1) \\
                 E(X) &= \frac{\alpha}{\alpha + \beta}, \ \ \ 
                 Var(X) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} \\
-                M_X(t) &= \sum_{n=0}^\infty \frac{B(\alpha + n, \beta)}{B(\alpha, \beta)} \frac{t^n}{n!} \\
+                M_X(t) &= \sum_{n=0}^\infty \frac{B(\alpha + n, \beta)}{B(\alpha, \beta)} \frac{t^n}{n!}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Beta $(\alpha, \beta)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Beta $(\alpha, \beta)$};
+\end{tikzpicture}
+
+%------------ Normal $(\mu, \sigma)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
                 f_X(x) &= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x-\mu}{\sigma} \right)^2} \text{ if } x \in \mathbb{R} \\
                 M_X(t) &= e^{\mu t + \frac{1}{2}\sigma^2t^2}
             \end{align*}
         \end{minipage}
     };
-%------------ Continuous Uniform $(a, b)$ Header ---------------------
-\node[fancytitle, right=10pt] at (box.north west) {Continuous Distributions};
+%------------ Normal $(\mu, \sigma)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Normal $(\mu, \sigma)$};
 \end{tikzpicture}
-
-%------------ Gamma $(\alpha, \beta)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 f_X(x) &= \frac{1}{\Gamma(\alpha) \beta^\alpha} x^{\alpha-1} e^{-\frac{x}{\beta}} , \text{ if } x>0 \\
-%                 E(X) &= \alpha \beta, \ \ \ 
-%                 Var(X) = \alpha \beta^2 \\
-%                 M_X(t) &= (1-\beta t)^{-\alpha}
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Gamma $(\alpha, \beta)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Gamma $(\alpha, \beta)$};
-% \end{tikzpicture}
-
-%------------ Exponential $(\beta)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 f_X(x) &= \frac{1}{\beta^\alpha} e^{-\frac{x}{\beta}}, \text{ if } x>0 \\
-%                 X \sim& \text{Gamma}(1, \beta) \\
-%                 E(X) &= \beta, \ \ \ 
-%                 Var(X) = \beta^2 \\
-%                 M_X(t) &= (1-\beta t)^{-1}
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Exponential $(\beta)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Exponential $(\beta)$};
-% \end{tikzpicture}
-
-% \vspace{50pt}
-
-%------------ Chi-Squared $(p)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 X \sim& \text{Gamma}(\frac{p}{2}, 2)
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Chi-Squared $(p)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Chi-Squared $(p)$};
-% \end{tikzpicture}
-
-%------------ Beta $(\alpha, \beta)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 f_X(x) &= \frac{1}{B(\alpha, \beta)} x^{\alpha-1} (1-x)^{\beta-1}, \text{ if } x \in (0,1) \\
-%                 E(X) &= \frac{\alpha}{\alpha + \beta}, \ \ \ 
-%                 Var(X) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} \\
-%                 M_X(t) &= \sum_{n=0}^\infty \frac{B(\alpha + n, \beta)}{B(\alpha, \beta)} \frac{t^n}{n!}
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Beta $(\alpha, \beta)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Beta $(\alpha, \beta)$};
-% \end{tikzpicture}
-
-%------------ Normal $(\mu, \sigma)$ Content ---------------------
-% \begin{tikzpicture}
-%     \node [mybox] (box){%
-%         \begin{minipage}{0.3\textwidth}
-%             \begin{align*}
-%                 f_X(x) &= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x-\mu}{\sigma} \right)^2} \text{ if } x \in \mathbb{R} \\
-%                 M_X(t) &= e^{\mu t + \frac{1}{2}\sigma^2t^2}
-%             \end{align*}
-%         \end{minipage}
-%     };
-% %------------ Normal $(\mu, \sigma)$ Header ---------------------
-% \node[fancytitle, right=10pt] at (box.north west) {Normal $(\mu, \sigma)$};
-% \end{tikzpicture}
 
 %------------ Marginal Distributions Content ---------------------
 % \begin{tikzpicture}
@@ -544,15 +546,19 @@
         \begin{minipage}{0.3\textwidth}
             \begin{align*}
                 \Gamma(\alpha) &= \int_0^\infty t^{\alpha - 1} e^{-t} dt, \ \ \alpha > 0 \\
-                \Gamma(\alpha + 1) &= \alpha \Gamma({\alpha}) \ \ \ \ \ \ \ \ 
-                \Gamma(\alpha) = (\alpha-1)! \\
+                \Gamma(\alpha + 1) &= \alpha \Gamma({\alpha}) \ \ \ \
+                \Gamma(\alpha) = (\alpha-1)! \ \ \ \
+                \Gamma(\frac{1}{2}) = \sqrt{\pi} \\
                 % \Gamma\left(\frac{1}{2}\right) &= \sqrt{\pi} \\
                 B(\alpha, \beta) &= \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha + \beta)} = \int_0^1 x^{\alpha-1} (1-x)^{\beta-1} dx \\
                 \sum_{x=1}^N x &= \frac{N(N+1)}{2} \ \ \ \ \ 
                 \sum_{n=0}^\infty ar^n = \frac{a}{1-r} \\
                 \binom{n}{r} &= \frac{n!}{r!(n-r)!} = \frac{n}{r} \binom{n-1}{r-1} \\
                 % {}_nP_r &= \frac{n!}{(n-r)!}
-                lim_{n \to \infty} & \left(1 - \frac{c}{n}\right)^{-n} = 0 \\
+                \lim_{n \to \infty} & \left(1 - \frac{c}{n}\right)^{-n} = e^c \ \ \ \
+                \lim_{n \to \infty}  \left(1 - \frac{a}{n}\right)^n = e^a \\
+                \prod^n_{i=1} a^{x_i} &= a^{\sum^n_{i=1} x_i} \ \ \ \ 
+                \prod^n_{i=1} cx_i = c^n \prod^n_{i=1} x_i
             \end{align*}
         \end{minipage}
     };
@@ -668,18 +674,114 @@
             \begin{align*}
                 X \sim & N_n(\mu, \Sigma) \& Y = AX + b \\
                 \implies Y & \sim N_m(A\mu + b, A\Sigma A^T) \\
-                M_{X_n}(t) &= M(t) \text{ for } |b| \leq h_1 \implies X_n \rightarrow{D} X \\
-                lim_{n \to \infty} & P[|X_n - X| \geq \epsilon] = 0 \implies X_n \rightarrow{P} X \\
+                M_{X_n}(t) &= M(t) \text{ for } |b| \leq h_1 \implies X_n \overset{D}{\rightarrow} X \\
+                \lim_{n \to \infty} & P[|X_n - X| \geq \epsilon] = 0 \implies X_n \overset{P}{\rightarrow} X \\
                 \text{CLT: } & \frac{\sqrt{n}(\bar{x}_n - \mu)}{\sigma} \\
                 \Delta \text{ Theorem: } & \sqrt{n}(g(\bar{X}) - g(\mu)) \sim N(0, g'(\mu)^2) \sigma^2 \\
                 \text{MLE: } & L(\theta) = \prod_{i=1}^{n} f(x_i;\theta) \\
-                \frac{\delta \log(L(\theta))}{\delta \theta} &= 0 \text{ gives } \hat{\theta} \\
-                \text{MME: } & EX, \text{ solve for } \theta \\
+                \frac{\delta \log(L(\theta))}{\delta \theta} &= 0 \text{ gives } \hat{\theta}_{mle} \\
+                \text{MME: } & EX, \text{ solve for } \theta
             \end{align*}
         \end{minipage}
     };
 %------------ Gamma + Beta Header ---------------------
-\node[fancytitle, right=10pt] at (box.north west) {New Material};
+\node[fancytitle, right=10pt] at (box.north west) {Unit 1 Material};
+\end{tikzpicture}
+
+%------------ Unbiased Estimate of $r(\theta)$ Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                E(X) &= r(\theta)
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Unbiased Estimate of $r(\theta)$ Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Unbiased Estimator of $\theta$};
+\end{tikzpicture}
+
+%------------ Fisher Number Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                I_n(\theta) &= E_\theta \left(\frac{d \ln f(x; \theta)}{d\theta}\right)^2 \\
+                &= - E_\theta \left(\frac{d^2 \ln f(x; \theta)}{d\theta^2}\right)
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Fisher Number Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Fisher Number};
+\end{tikzpicture}
+
+% \vspace{50pt}
+
+%------------ Cramer-Rao Lower Bound Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                \text{CRLB} &= \frac{1}{n\theta} \\
+                \text{Efficient estimator if } & Var(Y) = \text{CRLB}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Cramer-Rao Lower Bound Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Cramer-Rao Lower Bound};
+\end{tikzpicture}
+
+%------------ Asymptotic Efficiency Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                c(\hat{\theta}_{1n}) &= \frac{1 / I(\theta_0)}{\sigma^2_{\hat{\theta}_1n}} = \frac{\text{CRLB}}{Var(Y)}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Asymptotic Efficiency Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Asymptotic Efficiency};
+\end{tikzpicture}
+
+%------------ Asymptotic Relative Efficiency Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                \text{ARE: } & e(\hat{\theta}_{1n}, \hat{\theta}_{2n}) = \frac{\sigma^2_{\hat{\theta}_{2n}}}{\sigma^2_{\hat{\theta}_{1n}}}
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Asymptotic Relative Efficiency Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Asymptotic Relative Efficiency};
+\end{tikzpicture}
+
+%------------ Asymptotic Distribution Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                \sqrt{n}(\theta_{mle} - \theta) \overset{D}{\rightarrow} N(0, \frac{1}{I(\theta)})
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Asymptotic Distribution Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Asymptotic Distribution};
+\end{tikzpicture}
+
+%------------ Risk Function Content ---------------------
+\begin{tikzpicture}
+    \node [mybox] (box){%
+        \begin{minipage}{0.3\textwidth}
+            \begin{align*}
+                R(\theta, \delta) &= \int_{-\infty}^\infty L[\theta, \delta] f_Y(y;\theta) dy \\
+                &= E(L[\theta, \delta])
+            \end{align*}
+        \end{minipage}
+    };
+%------------ Risk Function Header ---------------------
+\node[fancytitle, right=10pt] at (box.north west) {Risk Function};
 \end{tikzpicture}
 
 \end{multicols*}
